@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Field Calculator</title>
+
+</head>
+<body>
+	<h1>Field Size Calculator; Four-row, 20 foot plots</h1>
+	<form name="formcalc">
+		Enter the length and width of your field<br> <br>Length <input
+			type="text" id="length" size="10"> Width <input type="text"
+			id="width" size="10"><br> <br> <input type="button"
+			value="Calculate field size" onClick="acres()"> <br> <input
+			type="text" name="area" size="5">
+		<div>
+			<br>
+			<h1>Enter the seeds per 20-foot row</h1>
+			<br> <br>Seed Number <input type="text" name="pop"
+				size="10"> <input type="button" value="Calculate Population" onClick=seedPop() /><br><input
+				type="text" name="total" size="10">
+		</div>
+	</form>
+	<script type="text/javascript">
+		function acres() {
+
+			var length = Number(document.formcalc.length.value);
+			var width = Number(document.formcalc.width.value);
+			var squareFeetPerAcre = 43560;
+			var area = width * length;
+
+			var acres = area / squareFeetPerAcre;
+
+			area = acres;
+			document.formcalc.area.value = area;
+		}
+		
+		function seedPop(){
+			var rowNumPerAcre = 2148;
+			var popPerRow = Number(document.formcalc.pop.value);
+			
+			var population = rowNumPerAcre*popPerRow;
+			document.formcalc.total.value = population;
+		}
+	</script>
+</body>
+</html>
